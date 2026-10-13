@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#121817"><meta name="description" content="นลิน ผู้ช่วยส่วนตัวที่ตอบจากหลักฐานใน Portfolio Dashboard เท่านั้น">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="นลิน">
+<title>นลิน · ผู้ช่วย Portfolio Dashboard</title><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css">
+</head><body>
+<div class="app"><aside class="sidebar"><a class="brand" href="./"><span class="brand-mark">N</span><span>นลิน<small>PORTFOLIO COMPANION</small></span></a>
+<div class="identity"><span class="avatar">น</span><h2>ผู้ช่วยของคุณค่ะ</h2><p>ช่วยมองตัวเลขให้ชัด<br>และยึดหลักฐานเป็นหลัก</p></div>
+<label for="stock">หุ้นหรือ ETF ที่ต้องการวิเคราะห์</label><select id="stock" disabled><option>กำลังอ่านข้อมูล…</option></select>
+<form id="ticker-form" class="ticker-form"><label class="sr-only" for="ticker-input">เพิ่ม Ticker</label><input id="ticker-input" placeholder="เพิ่ม เช่น VOO, PTT.BK" maxlength="25" autocomplete="off" autocapitalize="characters"><button type="submit" aria-label="อ่าน Ticker ที่มีข้อมูลใน Dashboard">เพิ่ม</button></form>
+<button id="refresh" disabled>↻ อ่านข้อมูล Dashboard ล่าสุด</button>
+<div class="scope"><span class="tiny-label">ขอบเขตข้อมูล</span><strong>Portfolio Dashboard เท่านั้น</strong><p id="snapshot-date" role="status">กำลังเชื่อมต่อ Dashboard</p><p>อ่านข้อมูลที่ Dashboard โหลดไว้เท่านั้น · ถ้าไม่มีข้อมูลต้องเปิด Chart หรือ Info ใน Dashboard ก่อน</p></div>
+<button id="install" hidden>ติดตั้งแอป</button><button id="about">วิธีใช้งานและขอบเขต</button>
+<div class="sidebar-footer">ไม่ต้องสมัครสมาชิก<br>ประมวลผลคำถามบนอุปกรณ์ของคุณ</div></aside>
+<main><header><div><span class="eyebrow">พื้นที่วิเคราะห์ของคุณ</span><h1>คุยกับนลิน</h1></div><span class="badge">ตอบจากหลักฐาน</span></header>
+<section class="stock-strip" aria-label="หลักทรัพย์และวันที่ของข้อมูล"><div><strong id="company">กำลังอ่านข้อมูลออนไลน์</strong><span id="period">—</span></div><div class="price"><strong id="close">—</strong><span id="price-date">เวลาของแหล่งข้อมูล</span></div></section>
+<div id="load-error" class="notice" role="alert" hidden></div>
+<section id="conversation" class="conversation" aria-label="บทสนทนา" aria-live="polite"><article class="message assistant"><div class="message-name"><span class="small-avatar">น</span>นลิน</div><p>สวัสดีค่ะ ฉันใช้ข้อมูลจาก Portfolio Dashboard เท่านั้น ช่วยคุณตรวจราคา อ่านงบ และดู ETF ได้ค่ะ หาก Dashboard ไม่มีหลักฐาน ฉันจะบอกตรง ๆ</p><p class="muted">เลือกหรือเพิ่ม Ticker แล้วถามสิ่งที่คุณอยากตรวจสอบได้เลยค่ะ</p></article></section>
+<div class="suggestions"><button data-question="ราคาล่าสุด">ราคาล่าสุด</button><button data-question="สรุปงบการเงิน">งบรายปี</button><button data-question="วิเคราะห์แนวรับแนวต้าน">แนวรับ · แนวต้าน</button><button data-question="สรุปข้อมูล ETF">ข้อมูล ETF</button></div>
+<form id="chat-form" class="composer"><label class="sr-only" for="question">คำถามถึงนลิน</label><textarea id="question" placeholder="ถามนลิน เช่น แนวรับอยู่ตรงไหน หรือ FCF เป็นอย่างไร…" rows="1" maxlength="2000" disabled></textarea><button id="send" type="submit" disabled>ส่งคำถาม <span aria-hidden="true">↗</span></button></form>
+<p class="footnote">ข้อเท็จจริงและผลคำนวณแสดงแยกกัน · ไม่คาดเดาราคาหรือรับประกันผลตอบแทน</p>
+</main></div>
+<dialog id="details"><div class="dialog-head"><h2 id="detail-title">รายละเอียด</h2><button id="close-details" aria-label="ปิด">✕</button></div><div id="detail-content"></div></dialog>
+<script src="engine.js"></script><script src="app.js"></script></body></html>
